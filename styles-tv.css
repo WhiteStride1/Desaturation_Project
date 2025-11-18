@@ -1,0 +1,156 @@
+/* TV / 10‑ft UI styles (very large screens, >=1920px) */
+/* ... existing styles ... */
+
+/* NEW: Container for side-by-side image comparison */
+.image-comparison {
+  display: flex;
+  gap: 2rem; /* Space between the two images */
+  margin-block: 2rem;
+}
+
+.figure-wrap {
+  margin-block: 0; /* Remove vertical margin from figure-wrap */
+  flex: 1 1 50%; /* Make each figure-wrap take half the width */
+}
+
+/* ... rest of the existing styles ... */
+/* TV / 10‑ft UI styles (very large screens, >=1920px) */
+* { box-sizing: border-box; }
+
+:root {
+  --border: #2b2b2b;
+  --muted: #9ca3af; /* neutral-400 */
+  --bg: #101010;
+  --panel: #18181b;
+  --text: #fafafa;
+  --focus: #22d3ee; /* cyan-400 for visibility at distance */
+  --radius: 24px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height: 1.6;
+}
+
+main {
+  max-inline-size: 120rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+}
+
+h1 {
+  font-size: 3rem; /* large, readable from distance */
+  margin-block: 0 1rem;
+}
+
+#image-form {
+  font-size: 1.5rem;
+}
+
+#image-form .field {
+  display: grid;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+
+label {
+  font-weight: 700;
+}
+
+input[type="file"] {
+  font-size: 1.25rem;
+  padding: 1rem;
+  border: 2px solid #374151;
+  border-radius: 16px;
+  background: #0b0b0b;
+  color: var(--text);
+}
+
+/* NEW: Style for slider output */
+#saturation-output {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* NEW: Make radio buttons arrange nicely */
+#color-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+}
+
+
+.actions {
+  margin-block: 1.25rem;
+}
+
+button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  border: 3px solid transparent;
+  background: #e5e7eb;
+  color: #0b0b0b;
+  font-weight: 800;
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 5px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.figure-wrap {
+  margin-block: 2rem;
+}
+
+canvas {
+  display: block;
+  inline-size: 100%;
+  border: 2px solid #374151;
+  border-radius: 20px;
+  background: #0b0b0b;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+  border: 3px solid var(--focus);
+  border-radius: 12px;
+  margin: 0.5rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
