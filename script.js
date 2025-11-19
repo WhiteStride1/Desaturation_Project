@@ -56,10 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Clear everything if no file or non-image file is selected
         if (!isImageFile(file)) {
+            const warningMessage = 'Error: Please Select a valid image file (e.g., JPEG, PNG, GIF).'
+            announce(warningMessage);
+            fileInput.value='';
             previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
             ctx.clearRect(0, 0, processedCanvas.width, processedCanvas.height);
             originalImageData = null;
-            announce('File input cleared.');
+            alert(warningMessage);
             return;
         }
 
