@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Desaturation</title>
+
+    <link rel="stylesheet" href="styles-mobile.css" media="(max-width: 767px)">
+    <link rel="stylesheet" href="styles-desktop.css" media="(min-width: 768px) and (max-width: 2560px)">
+    <link rel="stylesheet" href="styles-tv.css" media="(min-width: 2561px)">
+</head>
+
+<body>
+    <main id="main">
+        <h1>Upload and Process your Image</h1>
+
+        <form id="image-form">
+            <p>
+                Choose an image file to desaturate using the controls to select what color and saturation level.
+            </p>
+
+            <div class="field">
+                <label for="file-input">Choose File</label>
+                <input
+                    id="file-input"
+                    type="file"
+                    accept="image/*"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label for="saturation-slider">Desaturation Amount</label>
+                <input
+                    type="range"
+                    id="saturation-slider"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="1"
+                >
+                <output for="saturation-slider" id="saturation-output">0%</output>
+            </div>
+
+            <fieldset class="field">
+                <legend>Color to Desaturate</legend>
+                <div id="color-selection" style="display: flex; gap: 1rem;">
+                    <label>
+                        <input type="radio" name="target-color" value="blue" checked> Blue
+                    </label>
+                    <label>
+                        <input type="radio" name="target-color" value="red"> Red
+                    </label>
+                    <label>
+                        <input type="radio" name="target-color" value="green"> Green
+                    </label>
+                    <label>
+                        <input type="radio" name="target-color" value="all"> All Colors
+                    </label>
+                </div>
+            </fieldset>
+
+            </form>
+
+        <div class="image-comparison">
+            <section class="figure-wrap">
+                <h2>Before Image</h2>
+                <figure>
+                    <canvas
+                        id="preview-image"
+                        role="img"
+                    >
+                        Your browser does not support canvas.
+                    </canvas>
+                    <figcaption>Before Image Preview</figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-wrap">
+                <h2 id="after-heading">After Image</h2>
+                <figure>
+                    <canvas
+                        id="processed-canvas"
+                        role="img"
+                    >
+                        Your browser does not support canvas.
+                    </canvas>
+                    <figcaption>After Image Preview</figcaption>
+                </figure>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
